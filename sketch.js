@@ -2,22 +2,24 @@ let movers = [];
 let limit = 10;
 let r = 500;
 let bs = 30;
-let ss = 20;
+let ss = 15;
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0,255);
 
+
+
   // for (let i = 0; i < limit; i++){
   //   movers.push(new Mover(0.005,0.01));
   // }
+
 
 }
 
 function draw() {
   background(0,255);
-
 
   for (let i = 0; i < movers.length; i++) {
     movers[i].update();
@@ -29,14 +31,12 @@ function draw() {
     }    
     
     movers[i].draw();
-    
   }
   
-
 }
 
 function mouseClicked(){
-  let newMover = new Mover(1,0.01);
+  let newMover = new Mover(0.005,0.002);
   movers.push(newMover);
 
   if (movers.length > limit){
@@ -46,5 +46,6 @@ function mouseClicked(){
   for (let i = 0; i < movers.length - 1; i++) {
     newMover.addConnection(movers[i]);
   }
+  
 
 }

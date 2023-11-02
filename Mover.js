@@ -1,9 +1,9 @@
 class Mover {
   constructor(r, s) {
-    this.position = createVector(mouseX, mouseY);
+    this.pos = createVector(mouseX, mouseY);
     this.target = createVector(random(width), random(height));
-    this.velocity = createVector(random(-1, 1), random(-1, 0));
-    this.acceleration = createVector(0, 0);
+    this.vel = createVector(0,0);
+    this.acc = createVector(0, 0);
     this.rate = r;
     this.speed = s;
     this.connections = [];
@@ -12,43 +12,53 @@ class Mover {
   }
 
   applyForce(aForce) {
-    this.acceleration.add(aForce);
+    if (mouseIsPressed) {
+      this.acc.add(aForce);
+    }
+    else {
+      this.acc.mult(0);
+    }
+    
   }
 
   update() {
-    let gravityForce = createVector(width / 2, height / 2).sub(this.position);
-    gravityForce.setMag(0.1);
-    this.applyForce(gravityForce);
+    let gravity = createVector(width/2, height/2).sub(this.pos);
+    gravity.setMag(1);
+    this.applyForce(gravity);
 
-    this.velocity.add(this.acceleration);
-    this.position.add(this.velocity);
-    this.acceleration.mult(0);
+    this.vel.add(this.acc);
+    this.pos.add(this.vel);
+    
 
     if (random(1) < this.rate) {
       this.target = createVector(random(width), random(height));
     }
 
+    this.pos.x = lerp(this.pos.x, this.target.x, this.speed);
+    this.pos.y = lerp(this.pos.y, this.target.y, this.speed);
+    
+    this.acc.mult(0);
   };
 
-  addConnection(otherMover) {
-    this.connections.push(otherMover);
+  addConnection(other) {
+    this.connections.push(other);
   }
 
-  drawConnection(otherMover) {
-    let d = dist(this.position.x, this.position.y, otherMover.position.x, otherMover.position.y);
+  drawConnection(other) {
+    let d = dist(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
     if (d < r) {
       let sw = map(d, 0, r, ss, 1);
       let sf = map(sw, 20, 1, 255, 50);
       strokeWeight(sw);
       stroke(255, sf);
-      line(this.position.x, this.position.y, otherMover.position.x, otherMover.position.y);
+      line(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
     }
 }
 
   draw() {
     strokeWeight(bs);
     stroke(255, 180, 50, 255);
-    point(this.position.x, this.position.y);
+    point(this.pos.x, this.pos.y);
   }
   
 }
