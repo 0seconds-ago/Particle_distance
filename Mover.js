@@ -3,7 +3,7 @@ class Mover {
     this.pos = createVector(mouseX, mouseY);
     this.target = createVector(random(width), random(height));
     this.vel = createVector(0,0);
-    this.acc = createVector(0, 0);
+    this.acc = createVector(0,0);
     this.rate = r;
     this.speed = s;
     this.connections = [];
@@ -15,11 +15,12 @@ class Mover {
     if (mouseIsPressed) {
       this.acc.add(aForce);
     }
+    else{this.acc.sub(aForce);
+    }
 }
 
   update() {
-    let gravity = createVector(width/2, height/2).sub(this.pos);
-    gravity.setMag(0.3);
+    let gravity = createVector(0,0.05);
     this.applyForce(gravity);
 
     this.vel.add(this.acc);
@@ -34,6 +35,7 @@ class Mover {
     this.pos.y = lerp(this.pos.y, this.target.y, this.speed);
     
     this.acc.mult(0);
+
   };
 
   addConnection(other) {

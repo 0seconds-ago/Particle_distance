@@ -1,8 +1,8 @@
 let movers = [];
 let limit = 10;
 let r = 500;
-let bs = 30;
-let ss = 15;
+let bs = 70;
+let ss = 5;
 
 
 function setup() {
@@ -36,7 +36,7 @@ function draw() {
 }
 
 function mouseClicked(){
-  let newMover = new Mover(0.005,0.002);
+  let newMover = new Mover(0.05,0.002);
   movers.push(newMover);
 
   if (movers.length > limit){
