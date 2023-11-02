@@ -1,11 +1,11 @@
 let heading = [];
-let popu = 10;
+let limit = 10;
 let r = 100;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  // for (let i = 0; i < popu; i++){
+  // for (let i = 0; i < limit; i++){
   //   heading.push(new Mover(0.005,0.01));
   // }
 
@@ -42,4 +42,8 @@ function draw() {
 
 function mouseClicked(){
   heading.push(new Mover(0.005,0.01));
+
+  if (heading.length > limit){
+    heading.splice(1,1);
+  }
 }
