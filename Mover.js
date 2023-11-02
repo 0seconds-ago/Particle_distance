@@ -29,7 +29,7 @@ class Mover {
   drawConnection(otherMover) {
     let d = dist(this.x, this.y, otherMover.x, otherMover.y);
     if (d < r) {
-      let sw = map(d, 0, r, 15, 1);
+      let sw = map(d, 0, r, ss, 1);
       let sf = map(sw, 20, 1, 255, 50);
       strokeWeight(sw);
       stroke(255, sf);
@@ -38,7 +38,7 @@ class Mover {
 }
 
   draw() {
-    strokeWeight(20);
+    strokeWeight(bs);
     stroke(255, 180, 50, 255);
     point(this.x, this.y);
 

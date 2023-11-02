@@ -1,6 +1,8 @@
 let movers = [];
 let limit = 10;
 let r = 500;
+let bs = 30;
+let ss = 20;
 
 
 function setup() {
@@ -25,8 +27,8 @@ function draw() {
         movers[i].drawConnection(movers[ii]);
       }
     }    
-
-  movers[i].draw();
+    
+    movers[i].draw();
     
   }
 }
