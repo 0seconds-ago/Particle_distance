@@ -5,16 +5,15 @@ let r = 100;
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  for (let i = 0; i < popu; i++){
-    heading.push(new Mover(0.005,0.01));
-  }
+  // for (let i = 0; i < popu; i++){
+  //   heading.push(new Mover(0.005,0.01));
+  // }
 
   background(0,255);
 }
 
 function draw() {
   background(0,255);
-  
 
   for (let i = 0; i < heading.length; i++){
     heading[i].update();
@@ -41,3 +40,6 @@ function draw() {
   }
 }
 
+function mouseClicked(){
+  heading.push(new Mover(0.005,0.01));
+}

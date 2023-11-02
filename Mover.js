@@ -1,9 +1,9 @@
 class Mover {
   constructor(r, s) {
-    this.x = random(width);
-    this.y = random(height);
-    this.xl = width / 2;
-    this.yl = height / 2;
+    this.x = mouseX;
+    this.y = mouseY;
+    this.xl = random(width);
+    this.yl = random(height);
     this.rate = r;
     this.speed = s;
 
