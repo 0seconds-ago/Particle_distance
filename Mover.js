@@ -7,7 +7,7 @@ class Mover {
     this.rate = r;
     this.speed = s;
     this.connections = [];
-    this.gravity = createVector(0, 0);
+    //this.gravity = createVector(0, 0);
 
   }
 
@@ -15,15 +15,11 @@ class Mover {
     if (mouseIsPressed) {
       this.acc.add(aForce);
     }
-    else {
-      this.acc.mult(0);
-    }
-    
-  }
+}
 
   update() {
     let gravity = createVector(width/2, height/2).sub(this.pos);
-    gravity.setMag(1);
+    gravity.setMag(0.3);
     this.applyForce(gravity);
 
     this.vel.add(this.acc);
