@@ -31,12 +31,10 @@ function draw() {
     movers[i].draw();
     
   }
-  
-
 }
 
 function mouseClicked(){
-  let newMover = new Mover(1,0.01);
+  let newMover = new Mover(0.005,0.01);
   movers.push(newMover);
 
   if (movers.length > limit){
