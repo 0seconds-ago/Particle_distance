@@ -3,19 +3,15 @@ let limit = 10;
 let r = 500;
 let bs = 70;
 let ss = 5;
+let silr = 200;
+let sils= 20;
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0,255);
 
-
-
-  // for (let i = 0; i < limit; i++){
-  //   movers.push(new Mover(0.005,0.01));
-  // }
-
-
+  silr = width;
 }
 
 function draw() {
@@ -31,6 +27,10 @@ function draw() {
     }    
     
     movers[i].draw();
+
+    let mot = createVector (width/2, height);
+    movers[i].drawSil(mot);
+
   }
   
 }
@@ -42,10 +42,5 @@ function mouseClicked(){
   if (movers.length > limit){
     movers.shift();
   }
-
-  for (let i = 0; i < movers.length - 1; i++) {
-    newMover.addConnection(movers[i]);
-  }
-  
 
 }

@@ -38,10 +38,6 @@ class Mover {
 
   };
 
-  addConnection(other) {
-    this.connections.push(other);
-  }
-
   drawConnection(other) {
     let d = dist(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
     if (d < r) {
@@ -51,7 +47,20 @@ class Mover {
       stroke(255, sf);
       line(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
     }
-}
+  }
+  
+  
+  drawSil(other) {
+    let d = dist(this.pos.x, this.pos.y, other.x, other.y);
+    if (d < silr) {
+      let sw = map(d, 0, silr, sils, 1);
+      let sf = map(sw, 20, 1, 255, 50);
+      strokeWeight(sw);
+      stroke(255, sf);
+      line(this.pos.x, this.pos.y, other.x, other.y);
+    }
+  }
+
 
   draw() {
     strokeWeight(bs);
