@@ -1,6 +1,6 @@
 let movers = [];
 let limit = 10;
-let r = 500;
+let r = 300;
 let bs = 30;
 let ss = 20;
 
