@@ -2,7 +2,6 @@
 
 
 ## 1. Distance 
-=======
 
 
 ![image](https://github.com/0seconds-ago/Particle_distance/assets/123317581/642b9233-91dd-45bb-8835-d6da14e616d4)
