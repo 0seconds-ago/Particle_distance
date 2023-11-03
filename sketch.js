@@ -1,7 +1,7 @@
 let movers = [];
-let limit = 10;
-let r = 500;
-let bs = 70;
+let limit = 7;
+let r = 400;
+let bs = 100;
 let ss = 5;
 let silr = 200;
 let sils= 20;
@@ -12,6 +12,7 @@ function setup() {
   background(0,255);
 
   silr = width;
+  mot = createVector (width/2, height);
 }
 
 function draw() {
@@ -26,10 +27,13 @@ function draw() {
       }
     }    
     
-    movers[i].draw();
+  }
 
-    let mot = createVector (width/2, height);
-    movers[i].drawSil(mot);
+  for (let m of movers){
+    //m.update();
+    m.drawSil(mot);
+    m.draw();
+    m.checkEdges();
 
   }
   
