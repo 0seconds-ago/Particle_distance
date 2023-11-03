@@ -1,6 +1,6 @@
 # Particle_distance
 
-##Distance 
+## 1. Distance 
 
 ![image](https://github.com/0seconds-ago/Particle_distance/assets/123317581/642b9233-91dd-45bb-8835-d6da14e616d4)
 
@@ -8,7 +8,7 @@
 볼과 다른 볼의 거리에 따라 연결하는 선이 생성되고 변화한다
 
 
-##Force
+## 2. Force
 
 ![image](https://github.com/0seconds-ago/Particle_distance/assets/123317581/288a2660-2b31-42c5-82d4-530a8b87e1b7)
 
