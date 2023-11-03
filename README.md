@@ -44,5 +44,6 @@ checkEdges 에서 한번씩 천장에 박혀서 끼어버린다
 if (this.pos.y > height) {
         this.pos.y = height;
       } 
+```
 
 이걸 넣어도 빼도 동일한 문제가 발생한다 어째서
